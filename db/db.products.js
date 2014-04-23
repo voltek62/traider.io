@@ -9,8 +9,9 @@ exports.getById = function(id, callback){
     mongoclient.open(function(err, mongoclient) {  
         var dbName = mongoHandler.dbName();
         var db = mongoclient.db(dbName); 
-        
-        db.collection(collectionName).findOne({"_id": mongoHandler.makeObjectID(id)}, function(err, result) {
+        var mongoId = mongoHandler.makeObjectID(id);
+        console.log("id:"+mongoId);
+        db.collection(collectionName).findOne({"_id": mongoId}, function(err, result) {
             mongoclient.close(); 
             if (err){
                 mongoclient.close(); 
