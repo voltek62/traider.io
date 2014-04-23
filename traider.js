@@ -9,7 +9,9 @@ createServer = function createServer () {
     //server.use(express.cookieParser());
     
     //server.use(express.bodyParser());
-    server.use(express.static(__dirname + '/client'));
+    server.use(express.static(__dirname + '/public'));
+    server.use('/product/*', express.static(__dirname + '/public'));
+    server.use('/basket/', express.static(__dirname + '/public'));
      
     // attach router handlers
     routes.attachHandlers(server); //, passport);

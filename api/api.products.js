@@ -16,7 +16,7 @@ function list(req, res)
 }
 
 function view(req, res)
-{
+{ 
     db.getById(req.params.id, function(data){
         res.json(data);
     });
