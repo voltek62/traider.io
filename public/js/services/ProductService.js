@@ -23,7 +23,7 @@ angular.module('ProductService', []).factory('Products', ['$http', function($htt
                     callback(data);
                 }).error(function() {
                     alert("error");
-                }); 
+                });  
             }
             
 //            ,
@@ -34,7 +34,7 @@ angular.module('ProductService', []).factory('Products', ['$http', function($htt
 //
 //            delete : function(id) {
 //                    return $http.delete('/api/products/' + id);
-//            }
+//            } 
 	};
 	
 }]);

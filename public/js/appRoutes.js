@@ -14,8 +14,8 @@
                     controller: 'ProductDetailsController'
             })
             .when('/basket', {
-                    templateUrl: '/views/basket.html',
-                    controller: 'BasketController'
+                    templateUrl: '/views/basket.html', 
+                    controller: 'BasketController' 
             });
 
 	$locationProvider.html5Mode(true);
