@@ -1,10 +1,10 @@
 var mongoHandler = require("./db.client.js");
-var mongoclient = mongoHandler.getDbClient();
 var collectionName = "products";
 
 
 exports.getById = function(id, callback){
-    
+    if(callback === null || typeof(callback) !== "function"){throw "Call to db method must include callback function"} 
+    var mongoclient = mongoHandler.getDbClient();
     // Open the connection to the server
     mongoclient.open(function(err, mongoclient) {  
         var dbName = mongoHandler.dbName();
@@ -21,8 +21,8 @@ exports.getById = function(id, callback){
             else
             { 
                 // Close the connection
-                callback(result);
-                return;
+                return callback(result);
+                
             }
         });
     });
@@ -31,6 +31,7 @@ exports.getById = function(id, callback){
 exports.getAll = function(callback)
 {
     if(callback === null || typeof(callback) !== "function"){throw "Call to db method must include callback function"} 
+    var mongoclient = mongoHandler.getDbClient();
     mongoclient.open(function(err, mongoclient) {
         
         if (err){
@@ -57,9 +58,41 @@ exports.getAll = function(callback)
                     mongoclient.close(); 
                     
                     console.log("Got data: " + resultArray.length + " records.");
-                    callback(resultArray);
-                    return;
+                    return callback(resultArray);
+                     
                 });
+            }
+        }); 
+    }); 
+};
+
+
+exports.insert = function(data, callback)
+{
+    var mongoclient = mongoHandler.getDbClient();
+    mongoclient.open(function(err, mongoclient) {
+        
+        if (err){
+            mongoclient.close(); 
+            throw err.Message;
+            return;
+        }
+        
+        var dbName = mongoHandler.dbName();
+        var db = mongoclient.db(dbName); 
+        console.log(dbName+"."+collectionName);
+        
+        db.collection(collectionName).insert(data, function(err, result) {
+            if (err){
+                 
+                mongoclient.close();
+                throw err.Message;
+                return;
+            }
+            else if(callback === null && typeof(callback) !== "function")
+            {  
+                mongoclient.close();
+                return callback(result); 
             }
         }); 
     }); 
