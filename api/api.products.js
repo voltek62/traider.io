@@ -39,5 +39,4 @@ function view(req, res)
             return res.json(data);
         }
     });
-
-} 
+}

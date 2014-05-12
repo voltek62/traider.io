@@ -27,8 +27,7 @@ exports.getById = function(id, callback){
             else
             {
                 // Close the connection
-                return callback(null, result);
-                
+                return callback(null, result); 
             }
         });
     });
