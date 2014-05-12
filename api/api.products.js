@@ -26,8 +26,18 @@ function seed(req, res)
 }
 
 function view(req, res)
-{ 
-    db.getById(req.params.id, function(data){
-        res.json(data);
+{  
+    db.getById(req.params.id, function(err, data){
+        if(err)
+        { 
+            console.log(err);
+            res.statusCode = 500;
+            return res.json({"Error": err});
+        }
+        else
+        {
+            return res.json(data);
+        }
     });
+
 } 
