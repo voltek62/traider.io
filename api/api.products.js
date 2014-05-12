@@ -16,13 +16,12 @@ function list(req, res)
     });
 }
 function seed(req, res)
-{
- 
-    db.insert({"name":"Horse", , "description":"A lovely horse", "minPrice":59.99, "offers" : {"price":59.99, "stock":10} });
-    db.insert({"name":"Cow", , "description":"A lovely cow", "minPrice":59.99, "offers" : {"price":59.99, "stock":10} });
-    db.insert({"name":"cat", , "description":"A lovely cat", "minPrice":19.99, "offers" : {"price":19.99, "stock":10} });
-    db.insert({"name":"dog", , "description":"A lovely dog", "minPrice":19.99, "offers" : {"price":19.99, "stock":10} });
-    db.insert({"name":"mouse", , "description":"A lovely mouse", "minPrice":19.99, "offers" : {"price":19.99, "stock":10} }); 
+{ 
+    db.insert({"name":"Horse", "description":"A lovely horse", "minPrice":59.99, "offers" : {"price":59.99, "stock":10} });
+    db.insert({"name":"Cow", "description":"A lovely cow", "minPrice":59.99, "offers" : {"price":59.99, "stock":10} });
+    db.insert({"name":"cat", "description":"A lovely cat", "minPrice":19.99, "offers" : {"price":19.99, "stock":10} });
+    db.insert({"name":"dog", "description":"A lovely dog", "minPrice":19.99, "offers" : {"price":19.99, "stock":10} });
+    db.insert({"name":"mouse", "description":"A lovely mouse", "minPrice":19.99, "offers" : {"price":19.99, "stock":10} }); 
     res.json({"Status":"OK"});
 }
 
