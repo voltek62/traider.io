@@ -19,7 +19,11 @@ createServer = function createServer () {
     return server;
     
 };
-
+ 
 
 var server = createServer();
-server.listen(8003);
+var port = Number(process.env.PORT || 5000);
+server.listen(port, function() {
+  console.log("Listening on " + port);
+}); 
+ 
