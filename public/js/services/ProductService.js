@@ -1,6 +1,8 @@
 
 angular.module('ProductService', []).factory('Products', ['$http', function($http) {
 
+
+
         return {
             getAll: function(callback) { 
                 $http({

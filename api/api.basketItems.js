@@ -38,7 +38,7 @@ var addItem = function(req, res){
         if(!sess.products){
             sess.products = new Array();}
         sess.products.push(productInfo);
-        return res.send(200);
+        return res.send({ItemCount : sess.products.length});
         
         //return console.log(body.rows[0].title);
     });
