@@ -16,8 +16,8 @@ To get started, you'll need to:
 4. Ensure you have mongodb installed & running locally (default config expects no authentication on mongo)
 5. Resolve the dependancies on other modules by navigating to the root folder of the project in your terminal window and running "npm install" (no quotes).
 5. Start the application using the command "node traider.js", also in the app root folder.
-6. Open http://localhost:8003/api/products/seed to create some dummy product data
-7. Browse to http://localhost:8003/
+6. Open http://localhost:5000/api/products/seed to create some dummy product data
+7. Browse to http://localhost:5000/
 
 To go on and contribute, please read on...
 
